@@ -75,7 +75,7 @@ function App() {
     const fetchTrendingMovies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5033/trending-movies",
+          "https://movies-anime-api.onrender.com/trending-movies",
           {
             timeout: 10000, // 10 seconds
           }
@@ -90,7 +90,7 @@ function App() {
     const fetchPopularMovies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5033/popular-movies",
+          "https://movies-anime-api.onrender.com/popular-movies",
           {
             timeout: 10000, // 10 seconds
           }
@@ -105,7 +105,7 @@ function App() {
     const fetchUpcomingMovies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5033/upcoming-movies",
+          "https://movies-anime-api.onrender.com/upcoming-movies",
           {
             timeout: 10000, // 10 seconds
           }
@@ -119,7 +119,7 @@ function App() {
     };
     const fetchTrendingTV = async () => {
       try {
-        const response = await axios.get("http://localhost:5033/trending-tv", {
+        const response = await axios.get("https://movies-anime-api.onrender.com/trending-tv", {
           timeout: 10000, // 10 seconds
         });
         const trendingTV = response.data;
@@ -131,7 +131,7 @@ function App() {
     };
     const fetchPopularTV = async () => {
       try {
-        const response = await axios.get("http://localhost:5033/popular-tv", {
+        const response = await axios.get("https://movies-anime-api.onrender.com/popular-tv", {
           timeout: 10000, // 10 seconds
         });
         const popularTV = response.data;
@@ -145,7 +145,7 @@ function App() {
     const fetchTrendingAnime = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5033/trending-anime",
+          "https://movies-anime-api.onrender.com/trending-anime",
           {
             timeout: 10000, // 10 seconds
           }
@@ -161,7 +161,7 @@ function App() {
     const fetchPopularAnime = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5033/popular-anime",
+          "https://movies-anime-api.onrender.com/popular-anime",
           {
             timeout: 10000, // 10 seconds
           }
@@ -177,7 +177,7 @@ function App() {
     const fetchUpcomingAnime = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5033/upcoming-anime",
+          "https://movies-anime-api.onrender.com/upcoming-anime",
           {
             timeout: 10000, // 10 seconds
           }
