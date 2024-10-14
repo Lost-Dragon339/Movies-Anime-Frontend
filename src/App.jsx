@@ -145,7 +145,7 @@ function App() {
     const fetchTrendingAnime = async () => {
       try {
         const response = await axios.get(
-          "https://movies-anime-api.onrender.com/trending-anime",
+          "https://movies-anime-api.onrender.com/trending/anime",
           {
             timeout: 10000, // 10 seconds
           }
