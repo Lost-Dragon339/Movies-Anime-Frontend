@@ -210,7 +210,7 @@ function App() {
         const response = await axios.get("https://api.jikan.moe/v4/top/anime", {
           timeout: 10000, // 10 seconds
         });
-        const popularAnime = response.data;
+        const popularAnime = response.data.data;
 
         const popularAnimeArray = popularAnime.slice(0, 20).map((anime) => ({
           mal_id: anime.mal_id,
@@ -265,7 +265,7 @@ function App() {
             timeout: 10000, // 10 seconds
           }
         );
-        const upcomingAnime = response.data;
+        const upcomingAnime = response.data.data;
 
         const upcomingAnimeArray = upcomingAnime.slice(0, 20).map((anime) => ({
           mal_id: anime.mal_id,
