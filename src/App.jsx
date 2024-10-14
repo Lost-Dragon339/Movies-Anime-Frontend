@@ -119,9 +119,12 @@ function App() {
     };
     const fetchTrendingTV = async () => {
       try {
-        const response = await axios.get("https://movies-anime-api.onrender.com/trending-tv", {
-          timeout: 10000, // 10 seconds
-        });
+        const response = await axios.get(
+          "https://movies-anime-api.onrender.com/trending-tv",
+          {
+            timeout: 10000, // 10 seconds
+          }
+        );
         const trendingTV = response.data;
         setTrendingTV(trendingTV);
         // console.log(trendingTV);
@@ -131,9 +134,12 @@ function App() {
     };
     const fetchPopularTV = async () => {
       try {
-        const response = await axios.get("https://movies-anime-api.onrender.com/popular-tv", {
-          timeout: 10000, // 10 seconds
-        });
+        const response = await axios.get(
+          "https://movies-anime-api.onrender.com/popular-tv",
+          {
+            timeout: 10000, // 10 seconds
+          }
+        );
         const popularTV = response.data;
         setPopularTV(popularTV);
         // console.log(popularTV);
@@ -145,14 +151,55 @@ function App() {
     const fetchTrendingAnime = async () => {
       try {
         const response = await axios.get(
-          "https://movies-anime-api.onrender.com/trending/anime",
+          "https://api.jikan.moe/v4/seasons/now",
           {
             timeout: 10000, // 10 seconds
           }
         );
         const trendingAnime = response.data;
-        setTrendingAnime(trendingAnime);
-        // console.log(trendingAnime);
+
+        const trendingAnimeArray = trendingAnime.data
+          .slice(0, 20)
+          .map((anime) => ({
+            mal_id: anime.mal_id,
+            mal_url: anime.url,
+            images: [
+              anime.images.jpg.image_url,
+              anime.images.jpg.large_image_url,
+              anime.trailer.images?.maximum_image_url || null,
+            ],
+            trailer: {
+              yt_id: anime.trailer.youtube_id,
+              yt_url: anime.trailer.url,
+              embed_url: anime.trailer.embed_url,
+            },
+            titles: {
+              default_title: anime.title,
+              japanese_title: anime.title_japanese,
+              english_title: anime.title_english,
+            },
+            episodes: anime.episodes,
+            rating: anime.rating,
+            type: anime.type,
+            source: anime.source,
+            status: anime.status,
+            score: anime.score,
+            rank: anime.rank,
+            popularity: anime.popularity,
+            synopsis: anime.synopsis,
+            backgroud: anime.backgroud,
+            season: anime.season,
+            year: anime.year,
+            genres: anime.genres.map((genre) => genre.name),
+            themes: anime.themes.map((theme) => theme.name),
+            demographics: anime.demographics.map(
+              (demographic) => demographic.name
+            ),
+            explicit_genres: anime.explicit_genres.map((genre) => genre.name),
+          }));
+
+        setTrendingAnime(trendingAnimeArray);
+        console.log(trendingAnimeArray);
       } catch (error) {
         console.error(error);
       }
@@ -160,15 +207,51 @@ function App() {
 
     const fetchPopularAnime = async () => {
       try {
-        const response = await axios.get(
-          "https://movies-anime-api.onrender.com/popular/anime",
-          {
-            timeout: 10000, // 10 seconds
-          }
-        );
+        const response = await axios.get("https://api.jikan.moe/v4/top/anime", {
+          timeout: 10000, // 10 seconds
+        });
         const popularAnime = response.data;
-        setPopularAnime(popularAnime);
-        // console.log(popularAnime);
+
+        const popularAnimeArray = popularAnime.slice(0, 20).map((anime) => ({
+          mal_id: anime.mal_id,
+          mal_url: anime.url,
+          images: [
+            anime.images.jpg.image_url,
+            anime.images.jpg.large_image_url,
+            anime.trailer.images?.maximum_image_url || null,
+          ],
+          trailer: {
+            yt_id: anime.trailer.youtube_id,
+            yt_url: anime.trailer.url,
+            embed_url: anime.trailer.embed_url,
+          },
+          titles: {
+            default_title: anime.title,
+            japanese_title: anime.title_japanese,
+            english_title: anime.title_english,
+          },
+          episodes: anime.episodes,
+          rating: anime.rating,
+          type: anime.type,
+          source: anime.source,
+          status: anime.status,
+          score: anime.score,
+          rank: anime.rank,
+          popularity: anime.popularity,
+          synopsis: anime.synopsis,
+          backgroud: anime.backgroud,
+          season: anime.season,
+          year: anime.year,
+          genres: anime.genres.map((genre) => genre.name),
+          themes: anime.themes.map((theme) => theme.name),
+          demographics: anime.demographics.map(
+            (demographic) => demographic.name
+          ),
+          explicit_genres: anime.explicit_genres.map((genre) => genre.name),
+        }));
+
+        setPopularAnime(popularAnimeArray);
+        // console.log(popularAnimeArray);
       } catch (error) {
         console.error(error);
       }
@@ -177,14 +260,53 @@ function App() {
     const fetchUpcomingAnime = async () => {
       try {
         const response = await axios.get(
-          "https://movies-anime-api.onrender.com/upcoming/anime",
+          "https://api.jikan.moe/v4/seasons/upcoming",
           {
             timeout: 10000, // 10 seconds
           }
         );
         const upcomingAnime = response.data;
-        setUpcomingAnime(upcomingAnime);
-        // console.log(upcomingAnime);
+
+        const upcomingAnimeArray = upcomingAnime.slice(0, 20).map((anime) => ({
+          mal_id: anime.mal_id,
+          mal_url: anime.url,
+          images: [
+            anime.images.jpg.image_url,
+            anime.images.jpg.large_image_url,
+            anime.trailer.images?.maximum_image_url || null,
+          ],
+          trailer: {
+            yt_id: anime.trailer.youtube_id,
+            yt_url: anime.trailer.url,
+            embed_url: anime.trailer.embed_url,
+          },
+          titles: {
+            default_title: anime.title,
+            japanese_title: anime.title_japanese,
+            english_title: anime.title_english,
+          },
+          episodes: anime.episodes,
+          rating: anime.rating,
+          type: anime.type,
+          source: anime.source,
+          status: anime.status,
+          score: anime.score,
+          rank: anime.rank,
+          popularity: anime.popularity,
+          synopsis: anime.synopsis,
+          backgroud: anime.backgroud,
+          season: anime.season,
+          year: anime.year,
+          genres: anime.genres.map((genre) => genre.name),
+          themes: anime.themes.map((theme) => theme.name),
+          demographics: anime.demographics.map(
+            (demographic) => demographic.name
+          ),
+          explicit_genres: anime.explicit_genres.map((genre) => genre.name),
+        }));
+
+        setUpcomingAnime(upcomingAnimeArray);
+        // console.log(upcomingAnimeArray);
       } catch (error) {
         console.error(error);
       }
