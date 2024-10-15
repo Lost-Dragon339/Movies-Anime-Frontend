@@ -439,26 +439,31 @@ function App() {
                 src: popularMovies[0]?.backdrop_path,
                 title: popularMovies[0]?.title,
                 movieref: popularMovies[0]?.title,
+                overview:popularMovies[0]?.overview,
               },
               {
                 src: popularMovies[1]?.backdrop_path,
                 title: popularMovies[1]?.title,
                 movieref: popularMovies[1]?.title,
+                overview:popularMovies[1]?.overview,
               },
               {
                 src: popularMovies[2]?.backdrop_path,
                 title: popularMovies[2]?.title,
                 movieref: popularMovies[2]?.title,
+                overview:popularMovies[2]?.overview,
               },
               {
                 src: popularMovies[3]?.backdrop_path,
                 title: popularMovies[3]?.title,
                 movieref: popularMovies[3]?.title,
+                overview:popularMovies[3]?.overview,
               },
               {
                 src: popularMovies[4]?.backdrop_path,
                 title: popularMovies[4]?.title,
                 movieref: popularMovies[4]?.title,
+                overview:popularMovies[4]?.overview,
               },
             ]}
           />
@@ -532,26 +537,31 @@ function App() {
                 src: trendingTV[0]?.backdrop_path,
                 title: trendingTV[0]?.title,
                 movieref: trendingTV[0]?.title,
+                overview: trendingTV[0]?.overview,
               },
               {
                 src: trendingTV[1]?.backdrop_path,
                 title: trendingTV[1]?.title,
                 movieref: trendingTV[1]?.title,
+                overview: trendingTV[1]?.overview,
               },
               {
                 src: trendingTV[2]?.backdrop_path,
                 title: trendingTV[2]?.title,
                 movieref: trendingTV[2]?.title,
+                overview: trendingTV[2]?.overview,
               },
               {
                 src: trendingTV[3]?.backdrop_path,
                 title: trendingTV[3]?.title,
                 movieref: trendingTV[3]?.title,
+                overview: trendingTV[3]?.overview,
               },
               {
                 src: trendingTV[4]?.backdrop_path,
                 title: trendingTV[4]?.title,
                 movieref: trendingTV[4]?.title,
+                overview: trendingTV[4]?.overview,
               },
             ]}
           />

@@ -142,12 +142,12 @@ body {
 
 .featured-content {
   /* height:77vh; */
-  width: 77%;
-  /* padding: 50px; */
+  width: 90%;
+  
   background-size: cover; /* Ensures the image covers the entire container */
   
   background-repeat: no-repeat; /* Prevents image repetition */
-  margin-left: 130px;
+  margin-left: 60px;
 }
 
 
@@ -157,7 +157,7 @@ body {
 
 .featured-desc {
   width: 1000px;
-  margin: 100px 30px;
+  margin: 100px 10px;
   transition: all 1 ease-in-out;
   color: lightgray;
   
@@ -169,6 +169,35 @@ body {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   
   
+}
+
+.feat-text {
+  width: 400px;
+  margin: 100px 10px;
+  transition: all 1 ease-in-out;
+  color: lightgray;
+  
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 30px;
+  opacity: 1;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  overflow: hidden;  
+  
+  max-height: 180px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* adjust the number of lines to show */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  
+}
+
+.feat-text:hover {
+  overflow: visible;
+  max-height: none;
+  -webkit-line-clamp: none;
+  text-overflow: clip;
 }
 /* .featured-desc:hover,.featured-content:hover{
   

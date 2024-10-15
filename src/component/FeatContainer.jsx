@@ -40,19 +40,20 @@ function FeatContainer({ title, images = [] ,movieref}) {
   return (
     <div className="featured-content">
       <Slider {...settings}>
-        {images.map((image, index, movieref) => (
+        {images.map((image, index, movieref,overview) => (
           <div key={index}>
             <a href={`https://goku.sx/search?keyword=${image.movieref}`} className="links" target="_blank">
               <div
               style={{
-                height: '95vh',
-                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0), #151515), url(${image.src})`,
+                height: '100vh',
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0), #042242),linear-gradient(to left, rgba(0,0,0,0), #042242), url(${image.src})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 padding:'50px',
               }}
             >
               <p className="featured-desc">{image.title || title}</p>
+              <p className="feat-text">{image.overview || overview}</p>
             </div>
             </a>
           </div>
